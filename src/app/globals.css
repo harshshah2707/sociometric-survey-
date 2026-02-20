@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg-primary: #fefdfb;
+  --bg-secondary: #f8f5ee;
+  --text-primary: #1a2332;
+  --text-secondary: #4a5568;
+  --accent-blue: #4a90d9;
+  --accent-green: #27ae60;
+  --accent-purple: #8e44ad;
+  --accent-red: #c0392b;
+  --accent-orange: #e67e22;
+  --border-color: #e2ddd3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Academic paper-style heading */
+h1, h2, h3 {
+  font-family: 'Merriweather', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Form input styles */
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px rgba(74, 144, 217, 0.12);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c4bfb6;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a39e95;
+}
+
+/* Radio & checkbox custom styles */
+input[type="radio"],
+input[type="checkbox"] {
+  accent-color: var(--accent-blue);
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* Subtle grain texture on cards */
+.card-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* Progress bar animation */
+.progress-fill {
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Floating label effect */
+.floating-label {
+  transition: all 0.2s ease;
+}
+
+/* Node tooltip in graph */
+.react-flow__node {
+  transition: transform 0.15s ease;
+}
+
+.react-flow__node:hover {
+  transform: scale(1.05);
+}
+
+/* Selection ring for autocomplete */
+.autocomplete-option {
+  transition: background-color 0.15s ease;
+}
+
+.autocomplete-option:hover,
+.autocomplete-option.active {
+  background-color: #f0f4f8;
+}
+
+/* Section transitions */
+.section-enter {
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Rating grid hover */
+.rating-cell {
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.rating-cell:hover {
+  background-color: #edf2f7;
+  transform: scale(1.02);
+}
+
+.rating-cell.selected {
+  background-color: #4a90d9;
+  color: white;
+  font-weight: 600;
+}
+
+/* Toast notification */
+.toast {
+  animation: toastIn 0.3s ease-out;
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
